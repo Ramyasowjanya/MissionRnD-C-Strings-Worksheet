@@ -11,6 +11,25 @@ ERROR CASES: Return '\0' for invalid inputs.
 NOTES:
 */
 
-char KthIndexFromEnd(char *str, int K) {
+int lengthOfString(char *str)
+{
+	int len = 0;
+	while (*str != '\0')
+	{
+		len++;
+		str++;
+	}
+	return len;
+}
+char KthIndexFromEnd(char *str, int k) {
+	int length = 0; char returnChar;
+	if (str)
+	{
+		length = lengthOfString(str);
+		if (k > length || k < 0)
+			return '\0';
+		returnChar = str[length - k - 1];
+		return returnChar;
+	}
 	return '\0';
 }
